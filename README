@@ -1,0 +1,123 @@
+ Catálogo de Açaí — Projeto de Estrutura de Dados I (Entrega N1)
+
+Um catálogo de produtos no console, feito em Java, onde cada pedaço do código é também uma aula de estrutura de dados: Array, Enum e Pilha.
+
+📚 Informações acadêmicas
+Item	Informação
+Disciplina	Estrutura de Dados I
+Projeto	Projeto Integrador
+Etapa	Primeira Entrega (N1)
+Aluno(a)	Eric Gonçalves Andrade
+Tema escolhido	Catálogo de produtos
+Linguagem	Java
+
+🧁 Sobre o projeto
+
+Este programa funciona no terminal (console) e mostra um catálogo com 6 produtos de açaí. Cada produto tem nome, descrição, categoria e três preços, um para cada tamanho de copo.
+
+Com o menu, a pessoa pode:
+
+listar todos os produtos;
+buscar um produto por um pedaço do nome;
+ordenar os produtos por nome, em ordem alfabética;
+ver e desfazer o histórico de buscas.
+✅ Itens da ementa cobertos até o momento
+Item	Onde está no projeto	O que foi feito
+Array	estruturas/Catalogo.java	Criação do array de produtos, percurso, busca por parte do nome e ordenação por nome com Bubble Sort
+Enum	modelos/Tamanho.java e modelos/Categoria.java	Tamanho (200ml, 300ml, 500ml) e Categoria (Morango, Trufado, Outros)
+Pilha	estruturas/Pilha.java	Implementação própria com array: empilhar, desempilhar e consultar o topo. Usada como histórico de buscas (capacidade de 10)
+
+O programa também já usa métodos pequenos e organizados (programação modular), e o menu integra os três itens acima em um programa executável.
+
+🗂️ Estrutura de pastas
+projeto-estrutura-dados/
+│
+├── java/
+│   └── src/
+│       ├── Main.java                  # menu no console
+│       ├── modelos/
+│       │   ├── Categoria.java         # Enum de categorias
+│       │   ├── Tamanho.java           # Enum de tamanhos
+│       │   └── Produto.java           # ficha do produto
+│       ├── estruturas/
+│       │   ├── Catalogo.java          # Array de produtos
+│       │   └── Pilha.java             # Pilha própria
+│       └── util/                      # reservada para as próximas etapas
+│
+├── c/                                 # reservada para as próximas etapas
+│
+└── README.md
+
+
+🍨 Produtos do catálogo
+
+Produto	Categoria
+Creme de Avelã com Morango	Morango
+Açaí Trufado Ninho	Trufado
+Leite Ninho com Leite Condensado e Banana	Outros
+Morango com Leite Ninho	Morango
+Paçoca com Leite Ninho	Outros
+Combo Trufado	Trufado
+
+
+🎮 O menu
+===== CATÁLOGO DE AÇAÍ =====
+1 - Listar produtos
+2 - Buscar produto por nome
+3 - Ordenar produtos por nome (Bubble Sort)
+4 - Ver a última busca
+5 - Desfazer a última busca
+0 - Sair
+
+Regras do histórico de buscas (a Pilha):
+
+Cada busca digitada é guardada no topo da pilha.
+A opção 4 mostra a última busca, sem apagar.
+A opção 5 tira a última busca da pilha.
+Se a busca for deixada em branco, o programa avisa e não guarda nada.
+
+
+🚀 Como executar (passo a passo)
+1. Pré-requisito: ter o Java instalado
+
+Abra o terminal e digite:
+
+java -version
+javac -version
+
+Os dois comandos devem mostrar um número de versão. Este projeto foi testado com o JDK 25 (Temurin). Se aparecer erro de "comando não encontrado", instale o JDK em adoptium.net e abra o terminal de novo.
+
+2. Baixar o projeto
+Opção A (ZIP): na página do repositório no GitHub, clique em Code e depois em Download ZIP. Extraia a pasta.
+Opção B (Git): git clone <endereço-do-repositório>
+3. Abrir o terminal na pasta do projeto
+
+Entre na pasta principal (projeto-estrutura-dados) e abra o terminal ali. No VS Code, use File → Open Folder e depois Terminal → New Terminal.
+
+4. Entrar na pasta java
+cd java
+5. Compilar (traduzir o código)
+javac -d out -sourcepath src src/Main.java
+
+Se não aparecer nada, deu certo. Uma pasta chamada out é criada com o programa já traduzido.
+
+6. Executar
+java -cp out Main
+
+O menu aparece no terminal. Digite o número da opção e aperte Enter.
+
+7. Roteiro de teste sugerido
+Digite 1 para ver os 6 produtos com categoria e preços.
+Digite 3 e depois 1: a lista deve aparecer em ordem alfabética, começando por "Açaí Trufado Ninho".
+Digite 2 e busque trufado: devem aparecer 2 produtos.
+Digite 4: deve aparecer "Última busca: trufado".
+Digite 5 para desfazer a busca e depois 4 de novo: o programa avisa que não há busca.
+Digite 0 para sair.
+
+💡 A busca ignora diferença entre maiúsculas e minúsculas, mas os acentos contam: avelã encontra "Avelã", mas avela não.
+
+🧠 Decisões do projeto
+Pilha própria: feita com array de tamanho fixo, em vez de usar a pilha pronta do Java.
+Bubble Sort: escolhido por ser a ordenação mais simples, ordenando pelo nome (os preços são iguais em todos os produtos).
+Catálogo fixo: nesta etapa, o catálogo tem sempre os 6 produtos, sem cadastro nem remoção.
+Dois Enums: Tamanho e Categoria, porque os dois representam conjuntos de valores fixos do catálogo.
